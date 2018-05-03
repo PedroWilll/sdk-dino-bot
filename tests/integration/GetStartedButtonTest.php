@@ -17,9 +17,9 @@ class GetStartedButtonTest extends TestCase
 
     public function testRemoveGetStartedButton()
     {
-        $data = (new GetStartedButton)->add('Iniciar');
-         $sender = new CallSendApi('FACEBOOK_PAGE_ACCESS_TOKEN');
-         $result = $sender->make($data, CallSendApi::URL_PROFILE);
+        $data = (new GetStartedButton())->remove();
+        $sender = new CallSendApi('FACEBOOK_PAGE_ACCESS_TOKEN');
+        $result = $sender->make($data, CallSendApi::URL_PROFILE, 'DELETE');
         $this->assertTrue(is_string($result));
     }
 }
